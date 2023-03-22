@@ -2,7 +2,7 @@
 //  LocalData.swift
 //  MyTutor
 //
-//  Created by Xiaoru Zhao on 3/8/23.
+//  Created by Charissa Wang on 3/8/23.
 //
 
 import Foundation

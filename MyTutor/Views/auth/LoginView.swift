@@ -30,7 +30,7 @@ struct LoginView: View {
                 VStack(spacing: 15){
                     VStack(alignment: .center, spacing: 30){
                         VStack(alignment: .center) {
-                            TextField("Username", text: $user.email)
+                            TextField("email", text: $user.email)
                                 .foregroundColor(Color.primary).autocapitalization(.none)
                                     .keyboardType(.emailAddress)
                             Divider().background(Color.gray)

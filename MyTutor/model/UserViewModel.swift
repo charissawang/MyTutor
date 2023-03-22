@@ -2,7 +2,7 @@
 //  UserViewModel.swift
 //  MyTutor
 //
-//  Created by Xiaoru Zhao on 3/9/23.
+//  Created by Charissa Wang on 3/9/23.
 //
 
 import Foundation
@@ -39,9 +39,39 @@ struct UserViewModel {
         }
     }
     
+    func createAccount(_ email: String, _ password: String, _ confirmPW: String,
+                       createCompletion: @escaping (Result<Bool, Error>) -> Void) {
+        let valideEmail = isEmailValid(email)
+        if valideEmail != true {
+            createCompletion(.failure(CustomError.invalidEmail))
+            return
+        }
+        
+        let validPassword = isPasswordValid(password)
+        if validPassword != true {
+            createCompletion(.failure(CustomError.invalidPassword))
+            return
+        }
+        
+        let matched = passwordsMatch(password, confirmPW)
+        if matched != true {
+            createCompletion(.failure(CustomError.passwordNotMatch))
+            return
+        }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            if let eror = error {
+                print(eror.localizedDescription )
+                createCompletion(.failure(eror))
+            }else{
+                createCompletion(.success(true))
+            }
+         }
+    }
+    
     //MARK: - Validation checks
-    func passwordsMatch(_ confirmPW: String) -> Bool {
-        return confirmPW == password
+    func passwordsMatch(_ pw: String, _ confirmPW: String) -> Bool {
+        return confirmPW == pw
     }
     
     func isEmpty(_ field: String) -> Bool {
@@ -49,7 +79,7 @@ struct UserViewModel {
     }
     
     func isEmailValid(_ email: String) -> Bool {
-        if email.count > 100 {
+        if isEmpty(email) || email.count > 100 {
             return false
         }
         let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -58,6 +88,10 @@ struct UserViewModel {
     }
     
     func isPasswordValid(_ password: String) -> Bool {
+        if isEmpty(password) {
+            return false
+        }
+        
         let passwordRegex = "^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,15}$"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
     }
