@@ -32,6 +32,7 @@
 		97B818D129C131BC0095946E /* SubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D029C131BC0095946E /* SubjectViewModel.swift */; };
 		97B818D529CBAD3A0095946E /* TutorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D429CBAD3A0095946E /* TutorInfo.swift */; };
 		97B818D729CC03250095946E /* SubjectSelectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D629CC03250095946E /* SubjectSelectPickerView.swift */; };
+		97B818DA29CCA8350095946E /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D929CCA8350095946E /* FirebaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		97B818D029C131BC0095946E /* SubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewModel.swift; sourceTree = "<group>"; };
 		97B818D429CBAD3A0095946E /* TutorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorInfo.swift; sourceTree = "<group>"; };
 		97B818D629CC03250095946E /* SubjectSelectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSelectPickerView.swift; sourceTree = "<group>"; };
+		97B818D929CCA8350095946E /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +122,9 @@
 		97AC67B329B9067200FC1A85 /* MyTutor */ = {
 			isa = PBXGroup;
 			children = (
+				97B818D829CCA80A0095946E /* Utils */,
 				97B818C629BD43730095946E /* GoogleService-Info.plist */,
-				97B818A929B922B80095946E /* model */,
+				97B818A929B922B80095946E /* Model */,
 				9750EE6429B908B900E40CA9 /* Views */,
 				97AC67B429B9067200FC1A85 /* MyTutorApp.swift */,
 				97AC67B629B9067200FC1A85 /* ContentView.swift */,
@@ -139,17 +142,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		97B818A929B922B80095946E /* model */ = {
+		97B818A929B922B80095946E /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				97B818D229CBACEF0095946E /* dto */,
 				97B818C829BE70530095946E /* Exceptions */,
 				97B818AA29B924110095946E /* AccountConstants.swift */,
 				97B818AC29B925870095946E /* LocalData.swift */,
-				97B818BF29BAF6340095946E /* UserViewModel.swift */,
-				97B818D029C131BC0095946E /* SubjectViewModel.swift */,
+				97B818DB29CCA9310095946E /* ViewModel */,
 			);
-			path = model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		97B818B629BA500E0095946E /* components */ = {
@@ -196,6 +198,23 @@
 				97B818D429CBAD3A0095946E /* TutorInfo.swift */,
 			);
 			path = dto;
+			sourceTree = "<group>";
+		};
+		97B818D829CCA80A0095946E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				97B818D929CCA8350095946E /* FirebaseManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		97B818DB29CCA9310095946E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				97B818BF29BAF6340095946E /* UserViewModel.swift */,
+				97B818D029C131BC0095946E /* SubjectViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		FDD6BD6C4473273D20135FFD /* Pods */ = {
@@ -326,6 +345,7 @@
 				97B818CA29BE70690095946E /* CustomError.swift in Sources */,
 				97AC67B729B9067200FC1A85 /* ContentView.swift in Sources */,
 				9750EE6E29B90CA100E40CA9 /* WelcomeView.swift in Sources */,
+				97B818DA29CCA8350095946E /* FirebaseManager.swift in Sources */,
 				97B818CF29BE87E70095946E /* MultiSelectPickerView.swift in Sources */,
 				97B818D529CBAD3A0095946E /* TutorInfo.swift in Sources */,
 				97B818B129BA44FD0095946E /* LoginView.swift in Sources */,
