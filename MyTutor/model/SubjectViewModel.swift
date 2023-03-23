@@ -7,11 +7,13 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseAuth
 
 class SubjectViewModel: ObservableObject {
     @Published var subjectItems = [String]()
     @Published var userSubjects = [String]()
     private var db = Firestore.firestore()
+    private var currentTutor = TutorInfo()
     
     func fetchAllSubjects() {
         db.collection("subjects").addSnapshotListener { (querySnapshot, error) in
@@ -29,7 +31,7 @@ class SubjectViewModel: ObservableObject {
     }
     
     func fetchUserSubjects(_ userId: String) {
-        db.collection("tutors").whereField("userId", isEqualTo: userId)
+        db.collection("tutors").whereField("uid", isEqualTo: userId)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -39,7 +41,11 @@ class SubjectViewModel: ObservableObject {
                         self.userSubjects = []
                     } else {
                         let data = querySnapshot!.documents[0].data()
+                        print("data: \(data)")
                         self.userSubjects = data["subjects"] as? [String] ?? []
+                        print("userSubjects: \(self.userSubjects)")
+                        self.currentTutor.uid = userId
+                        self.currentTutor.subjects = self.userSubjects
                     }
 //                    for document in querySnapshot!.documents {
 //                        print("\(document.documentID) => \(document.data())")
@@ -48,19 +54,28 @@ class SubjectViewModel: ObservableObject {
         }
     }
     
-    func createUserSubjects(_ userId: String, _ subjects: [String]) {
-        let docData: [String: Any] = [
-            "userId": userId,
-            "subjects": subjects,
-            "dateAdded": Timestamp(date: Date()),
-        ]
-        let docRef = db.collection("UserSubjects").document(userId)
-        docRef.setData(docData) { error in
-            if let error = error {
-                print("Error writing document: \(error)")
-            } else {
-                print("Document successfully written!")
-            }
+    func createUserSubjects(_ subjects: [String]) {
+        let uid = Auth.auth().currentUser?.uid ?? "0"
+
+        print("subjects count: \(subjects.count)")
+        for s in subjects {
+            print("s = \(s)")
+        }
+        
+        if subjects.count == 0 || uid == "0" {
+            return
+        }
+        
+        db.collection("tutors").document(uid).setData([
+            "uid": uid,
+            "subjects": subjects
+        ]) { error in
+                if let error = error {
+                    print("Error writing document: \(error)")
+                } else {
+                    print("Document successfully written!")
+                }
+            
         }
     }
 }

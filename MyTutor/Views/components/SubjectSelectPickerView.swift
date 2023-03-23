@@ -1,13 +1,14 @@
 //
-//  MultiSelectPickerView.swift
+//  SubjectSelectPickerView.swift
 //  MyTutor
 //
-//  Created by Charissa Wang on 3/12/23.
+//  Created by Xiaoru Zhao on 3/22/23.
 //
 
 import SwiftUI
 
-struct MultiSelectPickerView: View {
+struct SubjectSelectPickerView: View {
+    var subjectViewModel = SubjectViewModel()
     // The list of items we want to show
     var allItems: [String]
  
@@ -38,12 +39,15 @@ struct MultiSelectPickerView: View {
                 }
             }
         }
+        .onDisappear() {
+            print("onDisappear count: \($selectedItems.count)")
+            subjectViewModel.createUserSubjects(selectedItems)
+        }
     }
 }
 
-//struct MultiSelectPickerView_Previews: PreviewProvider {
+//struct SubjectSelectPickerView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        var items = ["1", "3"]
-//        MultiSelectPickerView(selectedItems: items)
+//        SubjectSelectPickerView()
 //    }
 //}

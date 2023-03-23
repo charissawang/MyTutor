@@ -34,7 +34,7 @@ struct ContentView: View {
 //            }
             
             // LoginView()
-            SubjectSelectionView()
+            SubjectSelectionView(selectedItems: ["1", "2"])
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)

@@ -30,7 +30,8 @@
 		97B818CD29BE86600095946E /* SubjectSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818CC29BE86600095946E /* SubjectSelectionView.swift */; };
 		97B818CF29BE87E70095946E /* MultiSelectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818CE29BE87E70095946E /* MultiSelectPickerView.swift */; };
 		97B818D129C131BC0095946E /* SubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D029C131BC0095946E /* SubjectViewModel.swift */; };
-		97B818D529CBAD3A0095946E /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D429CBAD3A0095946E /* UserInfo.swift */; };
+		97B818D529CBAD3A0095946E /* TutorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D429CBAD3A0095946E /* TutorInfo.swift */; };
+		97B818D729CC03250095946E /* SubjectSelectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D629CC03250095946E /* SubjectSelectPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +61,8 @@
 		97B818CC29BE86600095946E /* SubjectSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSelectionView.swift; sourceTree = "<group>"; };
 		97B818CE29BE87E70095946E /* MultiSelectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectPickerView.swift; sourceTree = "<group>"; };
 		97B818D029C131BC0095946E /* SubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewModel.swift; sourceTree = "<group>"; };
-		97B818D429CBAD3A0095946E /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		97B818D429CBAD3A0095946E /* TutorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorInfo.swift; sourceTree = "<group>"; };
+		97B818D629CC03250095946E /* SubjectSelectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSelectPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				97B818B729BA50460095946E /* CustomTextfield.swift */,
 				97B818B929BA50900095946E /* CustomSecureField.swift */,
 				97B818CE29BE87E70095946E /* MultiSelectPickerView.swift */,
+				97B818D629CC03250095946E /* SubjectSelectPickerView.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -190,7 +193,7 @@
 		97B818D229CBACEF0095946E /* dto */ = {
 			isa = PBXGroup;
 			children = (
-				97B818D429CBAD3A0095946E /* UserInfo.swift */,
+				97B818D429CBAD3A0095946E /* TutorInfo.swift */,
 			);
 			path = dto;
 			sourceTree = "<group>";
@@ -324,12 +327,13 @@
 				97AC67B729B9067200FC1A85 /* ContentView.swift in Sources */,
 				9750EE6E29B90CA100E40CA9 /* WelcomeView.swift in Sources */,
 				97B818CF29BE87E70095946E /* MultiSelectPickerView.swift in Sources */,
-				97B818D529CBAD3A0095946E /* UserInfo.swift in Sources */,
+				97B818D529CBAD3A0095946E /* TutorInfo.swift in Sources */,
 				97B818B129BA44FD0095946E /* LoginView.swift in Sources */,
 				97B818B329BA45130095946E /* SignupView.swift in Sources */,
 				9750EE6629B908F400E40CA9 /* HomeView.swift in Sources */,
 				9750EE6829B9090700E40CA9 /* LessonsView.swift in Sources */,
 				97B818BA29BA50900095946E /* CustomSecureField.swift in Sources */,
+				97B818D729CC03250095946E /* SubjectSelectPickerView.swift in Sources */,
 				97B818C029BAF6340095946E /* UserViewModel.swift in Sources */,
 				97AC67B529B9067200FC1A85 /* MyTutorApp.swift in Sources */,
 				97B818CD29BE86600095946E /* SubjectSelectionView.swift in Sources */,

@@ -9,19 +9,18 @@ import SwiftUI
 import FirebaseAuth
 
 struct SubjectSelectionView: View {
+    private let currentUser = Auth.auth().currentUser
+    
     @ObservedObject var subjectViewModel = SubjectViewModel()
     
-    @State var selectedItems = ["1", "3"]
-    
-    //private var userViewModel = UserViewModel()
-    private let currentUser = Auth.auth().currentUser
+    @State var selectedItems: [String] = []
      
     var body: some View {
         NavigationView {
             Form {
                 Section("Choose your tutor subjects:", content: {
                     NavigationLink(destination: {
-                        MultiSelectPickerView(allItems: subjectViewModel.subjectItems, selectedItems: $selectedItems)
+                        SubjectSelectPickerView(allItems: subjectViewModel.subjectItems, selectedItems: $selectedItems)
                             .navigationTitle("Choose Your Subject")
                     }, label: {
                         HStack {
@@ -43,10 +42,6 @@ struct SubjectSelectionView: View {
             .onAppear() {
                 self.subjectViewModel.fetchAllSubjects()
                 self.subjectViewModel.fetchUserSubjects(currentUser?.uid ?? "")
-                self.selectedItems = self.subjectViewModel.userSubjects
-            }
-            .onDisappear() {
-                
             }
         }
     }
@@ -54,6 +49,6 @@ struct SubjectSelectionView: View {
 
 struct SubjectSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        SubjectSelectionView()
+        SubjectSelectionView(selectedItems: ["1", "2"])
     }
 }
