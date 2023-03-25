@@ -8,33 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    var fireBaseManager = FirebaseManager.shared
+    var localUserManager = LocalUserManager.shared
+    
     var body: some View {
         HStack() {
-//            if showWelcomeView() {
-//                WelcomeView()
-//            } else {
-//                TabView {
-//                    HomeView()
-//                        .tabItem(){
-//                            Image(systemName: "house.fill")
-//                            Text("Home")
-//                        }
-//                    LessonsView()
-//                        .tabItem(){
-//                            Image(systemName: "book")
-//                            Text("Lessons")
-//                        }
-//                    AccountView()
-//                        .tabItem {
-//                            Image(systemName: "person")
-//                            Text("Account")
-//                        }
-//                }
-//
-//            }
+            if showWelcomeView() {
+                WelcomeView()
+            } else if (fireBaseManager.isUserLoggedIn() == true) {
+                LoginView()
+            } else {
+                TabView {
+                    HomeView()
+                        .tabItem(){
+                            Image(systemName: "house.fill")
+                            Text("Home")
+                        }
+                    LessonsView()
+                        .tabItem(){
+                            Image(systemName: "book")
+                            Text("Lessons")
+                        }
+                    AccountView()
+                        .tabItem {
+                            Image(systemName: "person")
+                            Text("Account")
+                        }
+                }
+            }
             
-            // LoginView()
-            SubjectSelectionView(selectedItems: ["1", "2"])
+            // SubjectSelectionView(selectedItems: ["1", "2"])
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)

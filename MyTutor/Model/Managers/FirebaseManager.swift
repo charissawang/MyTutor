@@ -2,7 +2,7 @@
 //  FirebaseManager.swift
 //  MyTutor
 //
-//  Created by Xiaoru Zhao on 3/23/23.
+//  Created by Charissa Wang on 3/23/23.
 //
 
 import Foundation
@@ -19,11 +19,26 @@ class FirebaseManager: NSObject {
     
     override init() {
         FirebaseApp.configure()
-        
+
         self.auth = Auth.auth()
         self.firestore = Firestore.firestore()
         
         super.init()
+    }
+    
+    
+    func isUserLoggedIn() -> Bool {
+        let currentUser = self.auth.currentUser
+        
+        return currentUser?.uid != nil
+    }
+    
+    func getUserId () -> String {
+        return self.auth.currentUser?.uid ?? ""
+    }
+    
+    func getUserEmail()-> String {
+        return self.auth.currentUser?.email ?? ""
     }
     
 }

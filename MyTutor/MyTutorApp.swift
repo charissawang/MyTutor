@@ -20,9 +20,10 @@ import FirebaseCore
 @main
 struct MyTutorApp: App {
     // @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    init() {
-        FirebaseApp.configure()
-    }
+    //init() {
+        //FirebaseManager.shared
+        //FirebaseApp.configure()
+    //}
     
     var body: some Scene {
         WindowGroup {

@@ -9,8 +9,10 @@ import SwiftUI
 import FirebaseAuth
 
 struct LoginView: View {
-    @State private var user = UserViewModel()
+    var user = UserViewModel()
 
+    @State var email = ""
+    @State var password = ""
     @State private var valid = false
     @State private var showingInvalidAlert = false
 
@@ -30,13 +32,13 @@ struct LoginView: View {
                 VStack(spacing: 15){
                     VStack(alignment: .center, spacing: 30){
                         VStack(alignment: .center) {
-                            TextField("email", text: $user.email)
+                            TextField("email", text: $email)
                                 .foregroundColor(Color.primary).autocapitalization(.none)
                                     .keyboardType(.emailAddress)
                             Divider().background(Color.gray)
                         }
                         VStack(alignment: .center) {
-                            SecureField("Password", text: $user.password)
+                            SecureField("Password", text: $password)
                             Divider().background(Color.gray)
                         }
                     }
@@ -94,7 +96,7 @@ struct LoginView: View {
     }
 
     func login() {
-        Auth.auth().signIn(withEmail: user.email, password: user.password) { (result, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 valid = false

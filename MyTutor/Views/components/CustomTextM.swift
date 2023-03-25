@@ -2,7 +2,7 @@
 //  File.swift
 //  MyTutor
 //
-//  Created by Xiaoru Zhao on 3/9/23.
+//  Created by Charissa Wang on 3/9/23.
 //
 
 import SwiftUI

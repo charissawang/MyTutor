@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct SignupView: View {
-    @State private var user = UserViewModel()
+    var user = UserViewModel()
 
+    @State var email = ""
+    @State var password = ""
+    @State var confirmPassword = ""
     @State private var valid = false
     @State private var showingAlert = false
     @State private var errString: String?
@@ -28,17 +31,17 @@ struct SignupView: View {
                 VStack(spacing: 15){
                     VStack(alignment: .center, spacing: 30){
                         VStack(alignment: .center) {
-                            TextField("email", text: $user.email)
+                            TextField("email", text: $email)
                                 .foregroundColor(Color.primary).autocapitalization(.none)
                                     .keyboardType(.emailAddress)
                             Divider().background(Color.gray)
                         }
                         VStack(alignment: .center) {
-                            SecureField("Password", text: $user.password)
+                            SecureField("Password", text: $password)
                             Divider().background(Color.gray)
                         }
                         VStack(alignment: .center) {
-                            SecureField("Confirm Password", text: $user.confirmPassword)
+                            SecureField("Confirm Password", text: $confirmPassword)
                             Divider().background(Color.gray)
                         }
                     }
@@ -85,7 +88,7 @@ struct SignupView: View {
     }
     
     func signUp() {
-        user.createAccount(user.email, user.password, user.confirmPassword) { result in
+        user.createAccount(email, password, confirmPassword) { result in
             switch result {
             case .failure(let error):
                 self.errString = error.localizedDescription

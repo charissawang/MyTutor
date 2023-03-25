@@ -14,6 +14,13 @@ struct LocalData {
         defaults.set(value, forKey: key)
     }
     
+    func getUserChoice() -> String? {
+        var choice = UserDefaults.standard.string(forKey: AccountContants.USER_CHOICE) ?? nil
+        print ("get user choice: \(choice)")
+        
+        return choice
+    }
+    
     func getLocalData(_ key: String) -> String? {
         let defaults = UserDefaults.standard
         if let value = defaults.string(forKey: key) {

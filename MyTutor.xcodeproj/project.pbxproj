@@ -33,6 +33,9 @@
 		97B818D529CBAD3A0095946E /* TutorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D429CBAD3A0095946E /* TutorInfo.swift */; };
 		97B818D729CC03250095946E /* SubjectSelectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D629CC03250095946E /* SubjectSelectPickerView.swift */; };
 		97B818DA29CCA8350095946E /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D929CCA8350095946E /* FirebaseManager.swift */; };
+		97B818DF29CE3CCF0095946E /* NameFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818DE29CE3CCF0095946E /* NameFieldView.swift */; };
+		97B818E129CF7A830095946E /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818E029CF7A830095946E /* UserInfo.swift */; };
+		97B818E329CF9EBB0095946E /* LocalUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818E229CF9EBB0095946E /* LocalUserManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +68,9 @@
 		97B818D429CBAD3A0095946E /* TutorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorInfo.swift; sourceTree = "<group>"; };
 		97B818D629CC03250095946E /* SubjectSelectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSelectPickerView.swift; sourceTree = "<group>"; };
 		97B818D929CCA8350095946E /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		97B818DE29CE3CCF0095946E /* NameFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameFieldView.swift; sourceTree = "<group>"; };
+		97B818E029CF7A830095946E /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		97B818E229CF9EBB0095946E /* LocalUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +128,6 @@
 		97AC67B329B9067200FC1A85 /* MyTutor */ = {
 			isa = PBXGroup;
 			children = (
-				97B818D829CCA80A0095946E /* Utils */,
 				97B818C629BD43730095946E /* GoogleService-Info.plist */,
 				97B818A929B922B80095946E /* Model */,
 				9750EE6429B908B900E40CA9 /* Views */,
@@ -145,10 +150,10 @@
 		97B818A929B922B80095946E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				97B818D229CBACEF0095946E /* dto */,
+				97B818DD29CCAD8A0095946E /* Managers */,
+				97B818D229CBACEF0095946E /* Domains */,
 				97B818C829BE70530095946E /* Exceptions */,
-				97B818AA29B924110095946E /* AccountConstants.swift */,
-				97B818AC29B925870095946E /* LocalData.swift */,
+				97B818DC29CCAC780095946E /* Constants */,
 				97B818DB29CCA9310095946E /* ViewModel */,
 			);
 			path = Model;
@@ -188,24 +193,18 @@
 			isa = PBXGroup;
 			children = (
 				97B818CC29BE86600095946E /* SubjectSelectionView.swift */,
+				97B818DE29CE3CCF0095946E /* NameFieldView.swift */,
 			);
 			path = account;
 			sourceTree = "<group>";
 		};
-		97B818D229CBACEF0095946E /* dto */ = {
+		97B818D229CBACEF0095946E /* Domains */ = {
 			isa = PBXGroup;
 			children = (
 				97B818D429CBAD3A0095946E /* TutorInfo.swift */,
+				97B818E029CF7A830095946E /* UserInfo.swift */,
 			);
-			path = dto;
-			sourceTree = "<group>";
-		};
-		97B818D829CCA80A0095946E /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				97B818D929CCA8350095946E /* FirebaseManager.swift */,
-			);
-			path = Utils;
+			path = Domains;
 			sourceTree = "<group>";
 		};
 		97B818DB29CCA9310095946E /* ViewModel */ = {
@@ -215,6 +214,24 @@
 				97B818D029C131BC0095946E /* SubjectViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		97B818DC29CCAC780095946E /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				97B818AA29B924110095946E /* AccountConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		97B818DD29CCAD8A0095946E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				97B818D929CCA8350095946E /* FirebaseManager.swift */,
+				97B818AC29B925870095946E /* LocalData.swift */,
+				97B818E229CF9EBB0095946E /* LocalUserManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		FDD6BD6C4473273D20135FFD /* Pods */ = {
@@ -345,16 +362,19 @@
 				97B818CA29BE70690095946E /* CustomError.swift in Sources */,
 				97AC67B729B9067200FC1A85 /* ContentView.swift in Sources */,
 				9750EE6E29B90CA100E40CA9 /* WelcomeView.swift in Sources */,
+				97B818E129CF7A830095946E /* UserInfo.swift in Sources */,
 				97B818DA29CCA8350095946E /* FirebaseManager.swift in Sources */,
 				97B818CF29BE87E70095946E /* MultiSelectPickerView.swift in Sources */,
 				97B818D529CBAD3A0095946E /* TutorInfo.swift in Sources */,
 				97B818B129BA44FD0095946E /* LoginView.swift in Sources */,
 				97B818B329BA45130095946E /* SignupView.swift in Sources */,
+				97B818DF29CE3CCF0095946E /* NameFieldView.swift in Sources */,
 				9750EE6629B908F400E40CA9 /* HomeView.swift in Sources */,
 				9750EE6829B9090700E40CA9 /* LessonsView.swift in Sources */,
 				97B818BA29BA50900095946E /* CustomSecureField.swift in Sources */,
 				97B818D729CC03250095946E /* SubjectSelectPickerView.swift in Sources */,
 				97B818C029BAF6340095946E /* UserViewModel.swift in Sources */,
+				97B818E329CF9EBB0095946E /* LocalUserManager.swift in Sources */,
 				97AC67B529B9067200FC1A85 /* MyTutorApp.swift in Sources */,
 				97B818CD29BE86600095946E /* SubjectSelectionView.swift in Sources */,
 				97B818B829BA50460095946E /* CustomTextfield.swift in Sources */,

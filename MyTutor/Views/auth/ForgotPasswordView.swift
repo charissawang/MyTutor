@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ForgotPasswordView: View {
-    @State private var user = UserViewModel()
+    var user = UserViewModel()
+    
+    @State var email: String = ""
     @State private var valid = false
     @State private var showAlert = false
     @State private var errString: String?
@@ -21,7 +23,7 @@ struct ForgotPasswordView: View {
                     .padding(.bottom, 50)
                 
                 VStack(alignment: .center) {
-                    TextField("Enter email address", text: $user.email)
+                    TextField("Enter email address", text: $email)
                         .foregroundColor(Color.primary).autocapitalization(.none)
                             .keyboardType(.emailAddress)
                     Divider().background(Color.gray)
@@ -63,7 +65,7 @@ struct ForgotPasswordView: View {
     }
     
     func resetPassword() {
-        user.resetUserPassword(user.email) { result in
+        user.resetUserPassword(email) { result in
             switch result {
             case .failure(let error):
                 self.errString = error.localizedDescription
