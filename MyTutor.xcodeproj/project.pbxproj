@@ -17,7 +17,7 @@
 		97AC67B929B9067200FC1A85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97AC67B829B9067200FC1A85 /* Assets.xcassets */; };
 		97AC67BC29B9067200FC1A85 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97AC67BB29B9067200FC1A85 /* Preview Assets.xcassets */; };
 		97B818AB29B924110095946E /* AccountConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818AA29B924110095946E /* AccountConstants.swift */; };
-		97B818AD29B925870095946E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818AC29B925870095946E /* LocalData.swift */; };
+		97B818AD29B925870095946E /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818AC29B925870095946E /* LocalDataManager.swift */; };
 		97B818B129BA44FD0095946E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818B029BA44FD0095946E /* LoginView.swift */; };
 		97B818B329BA45130095946E /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818B229BA45130095946E /* SignupView.swift */; };
 		97B818B529BA4F150095946E /* CustomTextM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818B429BA4F150095946E /* CustomTextM.swift */; };
@@ -33,9 +33,13 @@
 		97B818D529CBAD3A0095946E /* TutorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D429CBAD3A0095946E /* TutorInfo.swift */; };
 		97B818D729CC03250095946E /* SubjectSelectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D629CC03250095946E /* SubjectSelectPickerView.swift */; };
 		97B818DA29CCA8350095946E /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818D929CCA8350095946E /* FirebaseManager.swift */; };
-		97B818DF29CE3CCF0095946E /* NameFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818DE29CE3CCF0095946E /* NameFieldView.swift */; };
+		97B818DF29CE3CCF0095946E /* AboutMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818DE29CE3CCF0095946E /* AboutMeView.swift */; };
 		97B818E129CF7A830095946E /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818E029CF7A830095946E /* UserInfo.swift */; };
 		97B818E329CF9EBB0095946E /* LocalUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818E229CF9EBB0095946E /* LocalUserManager.swift */; };
+		97B818E529D226A60095946E /* SchedulerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818E429D226A60095946E /* SchedulerPicker.swift */; };
+		97B818E729D390710095946E /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818E629D390710095946E /* ScheduleView.swift */; };
+		97B818E929D398AB0095946E /* ScheduleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818E829D398AB0095946E /* ScheduleListView.swift */; };
+		97B818EB29D399070095946E /* ScheduleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B818EA29D399070095946E /* ScheduleInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +56,7 @@
 		97AC67B829B9067200FC1A85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97AC67BB29B9067200FC1A85 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		97B818AA29B924110095946E /* AccountConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountConstants.swift; sourceTree = "<group>"; };
-		97B818AC29B925870095946E /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
+		97B818AC29B925870095946E /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
 		97B818B029BA44FD0095946E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		97B818B229BA45130095946E /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		97B818B429BA4F150095946E /* CustomTextM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextM.swift; sourceTree = "<group>"; };
@@ -68,9 +72,13 @@
 		97B818D429CBAD3A0095946E /* TutorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorInfo.swift; sourceTree = "<group>"; };
 		97B818D629CC03250095946E /* SubjectSelectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSelectPickerView.swift; sourceTree = "<group>"; };
 		97B818D929CCA8350095946E /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		97B818DE29CE3CCF0095946E /* NameFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameFieldView.swift; sourceTree = "<group>"; };
+		97B818DE29CE3CCF0095946E /* AboutMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeView.swift; sourceTree = "<group>"; };
 		97B818E029CF7A830095946E /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		97B818E229CF9EBB0095946E /* LocalUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserManager.swift; sourceTree = "<group>"; };
+		97B818E429D226A60095946E /* SchedulerPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerPicker.swift; sourceTree = "<group>"; };
+		97B818E629D390710095946E /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		97B818E829D398AB0095946E /* ScheduleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListView.swift; sourceTree = "<group>"; };
+		97B818EA29D399070095946E /* ScheduleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +201,10 @@
 			isa = PBXGroup;
 			children = (
 				97B818CC29BE86600095946E /* SubjectSelectionView.swift */,
-				97B818DE29CE3CCF0095946E /* NameFieldView.swift */,
+				97B818DE29CE3CCF0095946E /* AboutMeView.swift */,
+				97B818E429D226A60095946E /* SchedulerPicker.swift */,
+				97B818E629D390710095946E /* ScheduleView.swift */,
+				97B818E829D398AB0095946E /* ScheduleListView.swift */,
 			);
 			path = account;
 			sourceTree = "<group>";
@@ -203,6 +214,7 @@
 			children = (
 				97B818D429CBAD3A0095946E /* TutorInfo.swift */,
 				97B818E029CF7A830095946E /* UserInfo.swift */,
+				97B818EA29D399070095946E /* ScheduleInfo.swift */,
 			);
 			path = Domains;
 			sourceTree = "<group>";
@@ -228,7 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				97B818D929CCA8350095946E /* FirebaseManager.swift */,
-				97B818AC29B925870095946E /* LocalData.swift */,
+				97B818AC29B925870095946E /* LocalDataManager.swift */,
 				97B818E229CF9EBB0095946E /* LocalUserManager.swift */,
 			);
 			path = Managers;
@@ -368,9 +380,12 @@
 				97B818D529CBAD3A0095946E /* TutorInfo.swift in Sources */,
 				97B818B129BA44FD0095946E /* LoginView.swift in Sources */,
 				97B818B329BA45130095946E /* SignupView.swift in Sources */,
-				97B818DF29CE3CCF0095946E /* NameFieldView.swift in Sources */,
+				97B818DF29CE3CCF0095946E /* AboutMeView.swift in Sources */,
+				97B818E529D226A60095946E /* SchedulerPicker.swift in Sources */,
 				9750EE6629B908F400E40CA9 /* HomeView.swift in Sources */,
+				97B818E929D398AB0095946E /* ScheduleListView.swift in Sources */,
 				9750EE6829B9090700E40CA9 /* LessonsView.swift in Sources */,
+				97B818E729D390710095946E /* ScheduleView.swift in Sources */,
 				97B818BA29BA50900095946E /* CustomSecureField.swift in Sources */,
 				97B818D729CC03250095946E /* SubjectSelectPickerView.swift in Sources */,
 				97B818C029BAF6340095946E /* UserViewModel.swift in Sources */,
@@ -379,9 +394,10 @@
 				97B818CD29BE86600095946E /* SubjectSelectionView.swift in Sources */,
 				97B818B829BA50460095946E /* CustomTextfield.swift in Sources */,
 				9750EE6A29B9094200E40CA9 /* AccountView.swift in Sources */,
+				97B818EB29D399070095946E /* ScheduleInfo.swift in Sources */,
 				97B818B529BA4F150095946E /* CustomTextM.swift in Sources */,
 				97B818BE29BAF0AF0095946E /* ForgotPasswordView.swift in Sources */,
-				97B818AD29B925870095946E /* LocalData.swift in Sources */,
+				97B818AD29B925870095946E /* LocalDataManager.swift in Sources */,
 				97B818D129C131BC0095946E /* SubjectViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

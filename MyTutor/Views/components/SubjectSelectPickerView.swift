@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct SubjectSelectPickerView: View {
-    var subjectViewModel = SubjectViewModel()
-    // The list of items we want to show
+    let localUserManager = LocalUserManager.shared
     var allItems: [String]
  
     // Binding to the selected items we want to track
@@ -41,7 +40,8 @@ struct SubjectSelectPickerView: View {
         }
         .onDisappear() {
             print("onDisappear count: \($selectedItems.count)")
-            subjectViewModel.createUserSubjects(selectedItems)
+            localUserManager.setUserSubject(selectedItems)
+            localUserManager.createOrUpdateUser()
         }
     }
 }

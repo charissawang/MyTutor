@@ -36,7 +36,7 @@ class SubjectViewModel: ObservableObject {
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    print("about to loop document: \(querySnapshot!.documents.count)")
+                    print("about to loop subjects document: \(querySnapshot!.documents.count)")
                     if querySnapshot!.documents.count == 0 {
                         self.userSubjects = []
                     } else {

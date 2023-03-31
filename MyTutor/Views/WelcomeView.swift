@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    let localData = LocalData()
+    let localDataManager = LocalDataManager.shared
     
     var body: some View {
         ZStack {
@@ -18,7 +18,7 @@ struct WelcomeView: View {
                     .backgroundStyle(.clear)
                     .aspectRatio(contentMode: .fit)
                 Button {
-                    localData.setStudentChoice()
+                    localDataManager.setStudentChoice()
                     buttonPressed();
                 } label: {
                     Text("I am Student")
@@ -35,7 +35,7 @@ struct WelcomeView: View {
                     
                 }
                 Button {
-                    localData.setTutorChoice()
+                    localDataManager.setTutorChoice()
                     buttonPressed();
                 } label: {
                     Text("I am Tutor")
@@ -51,7 +51,7 @@ struct WelcomeView: View {
                         )
                 }
                 Button {
-                    localData.setBothChoice()
+                    localDataManager.setBothChoice()
                     buttonPressed();
                 } label: {
                     Text("I am Both")
@@ -75,7 +75,7 @@ struct WelcomeView: View {
     }
     
     func buttonPressed() {
-        let val = localData.getLocalData(AccountContants.USER_CHOICE)
+        let val = localDataManager.getLocalData(AccountContants.USER_CHOICE)
         print ("user choice : \(val)")
     }
 }

@@ -10,12 +10,13 @@ import SwiftUI
 struct ContentView: View {
     var fireBaseManager = FirebaseManager.shared
     var localUserManager = LocalUserManager.shared
+    var localDataManager = LocalDataManager.shared
     
     var body: some View {
         HStack() {
             if showWelcomeView() {
                 WelcomeView()
-            } else if (fireBaseManager.isUserLoggedIn() == true) {
+            } else if (fireBaseManager.isUserLoggedIn() == false) {
                 LoginView()
             } else {
                 TabView {
@@ -36,21 +37,16 @@ struct ContentView: View {
                         }
                 }
             }
-            
-            // SubjectSelectionView(selectedItems: ["1", "2"])
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         
+        //SchedulerPicker()
     }
     
     func showWelcomeView() -> Bool {
-        let localData = LocalData()
-        //localData.clearUserChoice()
+        let userChoice = localDataManager.getLocalData(AccountContants.USER_CHOICE)
         
-        let userChoice = localData.getLocalData(AccountContants.USER_CHOICE)
-        
-        print("userChoice: \(userChoice ?? "")")
         if userChoice == nil {
             return true
         }

@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct AccountView: View {
+    let localDataManager = LocalDataManager.shared
+    let localUserManager = LocalUserManager.shared
+    
     @State var isOn: Bool = true
-    let localData = LocalData()
+    @State var displayName: String = ""
+    @State var description: String = ""
     
     var body: some View {
         ZStack {
@@ -31,7 +35,7 @@ struct AccountView: View {
                         }.padding()
                         HStack {
                             Button {
-                                localData.setStudentChoice()
+                                localDataManager.setStudentChoice()
                             } label: {
                                 Text("Student")
                                     .padding()
@@ -43,7 +47,7 @@ struct AccountView: View {
                                     )
                             }
                             Button {
-                                localData.setStudentChoice()
+                                localDataManager.setStudentChoice()
                             } label: {
                                 Text("Tutor")
                                     .padding()
@@ -56,7 +60,7 @@ struct AccountView: View {
                                 
                             }
                             Button {
-                                localData.setBothChoice()
+                                localDataManager.setBothChoice()
                             } label: {
                                 Text("Both")
                                     .padding()
@@ -88,13 +92,13 @@ struct AccountView: View {
                     Section {
                         VStack {
                             Form {
-                                Section("Display Name", content: {
+                                Section("About me", content: {
                                     NavigationLink(destination: {
-                                        HomeView()
-                                            .navigationTitle("Display Name")
+                                        AboutMeView(displayName: $displayName, description: $description)
+                                            .navigationTitle("About me")
                                     }, label: {
                                         HStack {
-                                            Text("Xiaoru").foregroundColor(Color.black)
+                                            Text(displayName).foregroundColor(Color.black)
                                         }
                                     })
                                 })
@@ -104,6 +108,19 @@ struct AccountView: View {
                     Spacer()
                     
                 }.background(Color.gray.brightness(0.39))
+            }.onAppear() {
+                localUserManager.reload { result in
+                    switch result {
+                    case .failure(_):
+                        print("reload user error in accountView")
+                    case .success(_):
+                        let name = localUserManager.currentUser.displayName
+                        let email = localUserManager.currentUser.email
+                        description = localUserManager.currentUser.description
+                        displayName = name == "" ? email : name
+                    }
+                }
+            
             }
         }
     }

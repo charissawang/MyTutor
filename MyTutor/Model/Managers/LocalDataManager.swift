@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct LocalData {
+class LocalDataManager: NSObject {
     let defaults = UserDefaults.standard
+    
+    static let shared = LocalDataManager()
     
     func setLocalData(_ key: String, _ value: String?) {
         defaults.set(value, forKey: key)

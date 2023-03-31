@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct LoginView: View {
+    var localUserManager = LocalUserManager.shared
     var user = UserViewModel()
 
     @State var email = ""
@@ -84,7 +85,7 @@ struct LoginView: View {
                         .padding(.bottom,30)
                 }
                 
-                NavigationLink(destination: HomeView(),isActive: $valid) { EmptyView()
+                NavigationLink(destination: ContentView(),isActive: $valid) { EmptyView()
                 }
 
             }
@@ -102,7 +103,14 @@ struct LoginView: View {
                 valid = false
                 showingInvalidAlert.toggle()
             } else {
-                print("success1")
+                localUserManager.reload { result in
+                    switch result {
+                    case .failure(_):
+                        print("reload user error in LoginView")
+                    case .success(_):
+                        print("reload user success in loginView")
+                    }
+                }
                 valid = true
             }
         }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignupView: View {
+    var localUserManager = LocalUserManager.shared
     var user = UserViewModel()
 
     @State var email = ""
@@ -75,7 +76,7 @@ struct SignupView: View {
                 .padding(.top,35)
                 Spacer()
                 
-                NavigationLink(destination: HomeView(),isActive: $valid) { EmptyView() }
+                NavigationLink(destination: ContentView(),isActive: $valid) { EmptyView() }
 
             }
             .navigationBarHidden(true)
@@ -95,6 +96,7 @@ struct SignupView: View {
                 valid = false
                 self.showingAlert = true
             case .success(_):
+                localUserManager.createOrUpdateUser()
                 valid = true
             }
             
