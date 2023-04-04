@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var userViewModel = UserViewModel()
+    @ObservedObject var subjectViewModel = SubjectViewModel()
+    
     var fireBaseManager = FirebaseManager.shared
     var localUserManager = LocalUserManager.shared
     var localDataManager = LocalDataManager.shared
@@ -20,7 +23,7 @@ struct ContentView: View {
                 LoginView()
             } else {
                 TabView {
-                    HomeView()
+                    HomeView(selectedItems: $userViewModel.currentUser.subjects, allSubjects: $subjectViewModel.subjectItems)
                         .tabItem(){
                             Image(systemName: "house.fill")
                             Text("Home")
@@ -36,6 +39,10 @@ struct ContentView: View {
                             Text("Account")
                         }
                 }
+                .onAppear() {
+                    self.subjectViewModel.fetchAllSubjects()
+                    self.userViewModel.loadUserInfo()
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -45,6 +52,7 @@ struct ContentView: View {
     }
     
     func showWelcomeView() -> Bool {
+        // localDataManager.clearUserChoice()
         let userChoice = localDataManager.getLocalData(AccountContants.USER_CHOICE)
         
         if userChoice == nil {

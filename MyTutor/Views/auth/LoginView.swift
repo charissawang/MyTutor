@@ -85,8 +85,7 @@ struct LoginView: View {
                         .padding(.bottom,30)
                 }
                 
-                NavigationLink(destination: ContentView(),isActive: $valid) { EmptyView()
-                }
+                NavigationLink(destination: ContentView(),isActive: $valid) { EmptyView() }
 
             }
             .navigationBarHidden(true)

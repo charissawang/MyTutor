@@ -12,6 +12,7 @@
 		9750EE6829B9090700E40CA9 /* LessonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750EE6729B9090700E40CA9 /* LessonsView.swift */; };
 		9750EE6A29B9094200E40CA9 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750EE6929B9094200E40CA9 /* AccountView.swift */; };
 		9750EE6E29B90CA100E40CA9 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750EE6D29B90CA100E40CA9 /* WelcomeView.swift */; };
+		979943A729D8A66600C8B639 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943A629D8A66600C8B639 /* DateUtils.swift */; };
 		97AC67B529B9067200FC1A85 /* MyTutorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC67B429B9067200FC1A85 /* MyTutorApp.swift */; };
 		97AC67B729B9067200FC1A85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC67B629B9067200FC1A85 /* ContentView.swift */; };
 		97AC67B929B9067200FC1A85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97AC67B829B9067200FC1A85 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		9750EE6729B9090700E40CA9 /* LessonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsView.swift; sourceTree = "<group>"; };
 		9750EE6929B9094200E40CA9 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		9750EE6D29B90CA100E40CA9 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		979943A629D8A66600C8B639 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		97AC67B129B9067200FC1A85 /* MyTutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTutor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97AC67B429B9067200FC1A85 /* MyTutorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTutorApp.swift; sourceTree = "<group>"; };
 		97AC67B629B9067200FC1A85 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +117,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		979943A529D8A64800C8B639 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				979943A629D8A66600C8B639 /* DateUtils.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		97AC67A829B9067200FC1A85 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 		97AC67B329B9067200FC1A85 /* MyTutor */ = {
 			isa = PBXGroup;
 			children = (
+				979943A529D8A64800C8B639 /* utils */,
 				97B818C629BD43730095946E /* GoogleService-Info.plist */,
 				97B818A929B922B80095946E /* Model */,
 				9750EE6429B908B900E40CA9 /* Views */,
@@ -377,6 +388,7 @@
 				97B818E129CF7A830095946E /* UserInfo.swift in Sources */,
 				97B818DA29CCA8350095946E /* FirebaseManager.swift in Sources */,
 				97B818CF29BE87E70095946E /* MultiSelectPickerView.swift in Sources */,
+				979943A729D8A66600C8B639 /* DateUtils.swift in Sources */,
 				97B818D529CBAD3A0095946E /* TutorInfo.swift in Sources */,
 				97B818B129BA44FD0095946E /* LoginView.swift in Sources */,
 				97B818B329BA45130095946E /* SignupView.swift in Sources */,

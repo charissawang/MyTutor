@@ -10,6 +10,6 @@ import Foundation
 struct ScheduleInfo : Identifiable{
     let id = UUID()
     var date: String = ""
-    var startTime: String = ""
-    var endTime: String = ""
+//    var startTime: String = ""
+//    var endTime: String = ""
 }

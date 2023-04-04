@@ -28,6 +28,7 @@ class LocalUserManager: NSObject {
     }
     
     func createOrUpdateUser() {
+        print("availbeSchedules \(currentUser.availableSchedules)")
         firebaseManager.firestore.collection("users").document(currentUser.uid).setData([
             "uid": currentUser.uid,
             "email": currentUser.email,
@@ -58,7 +59,7 @@ class LocalUserManager: NSObject {
         currentUser.description = desc
     }
     
-    func setAvailableSchedules(_ schedules: [ScheduleInfo]) {
+    func setAvailableSchedules(_ schedules: [String]) {
         currentUser.availableSchedules = schedules
     }
     
@@ -94,7 +95,7 @@ class LocalUserManager: NSObject {
                         self.currentUser.subjects = data["subjects"] as? [String] ?? []
                         self.currentUser.displayName = data["displayName"] as? String ?? ""
                         self.currentUser.description = data["description"] as? String ?? ""
-                        self.currentUser.availableSchedules = data["availableSchedules"] as? [ScheduleInfo] ?? []
+                        self.currentUser.availableSchedules = data["availableSchedules"] as? [String] ?? []
                         loadCompletion(.success(true))
                     }
                 }

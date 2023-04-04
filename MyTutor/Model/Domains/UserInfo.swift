@@ -14,5 +14,5 @@ struct UserInfo {
     var description: String = ""
     var tutorMode: Int = -1
     var subjects: [String] = []
-    var availableSchedules: [ScheduleInfo] = []
+    var availableSchedules: [String] = []
 }

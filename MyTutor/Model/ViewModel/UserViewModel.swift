@@ -9,7 +9,10 @@ import Foundation
 import FirebaseAuth
 
 class UserViewModel: ObservableObject {
-    @Published var currentUser: UserInfo?
+    @Published var currentUser: UserInfo = UserInfo()
+    @Published var subjects: [String] = []
+    
+    var localUserManager = LocalUserManager.shared
     
 //    var email: String = ""
 //    var password: String = ""
@@ -96,5 +99,18 @@ class UserViewModel: ObservableObject {
         
         let passwordRegex = "^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,15}$"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
+    }
+    
+    func loadUserInfo() {
+        localUserManager.reload { result in
+            switch result {
+            case .failure(_):
+                print("something wrong reload user")
+            case .success(_):
+                print("user loaded!")
+                self.currentUser = self.localUserManager.currentUser
+                self.subjects = self.currentUser.subjects
+            }
+        }
     }
 }

@@ -8,33 +8,48 @@
 import SwiftUI
 
 struct ScheduleListView: View {
+
+    @State private var isAddPressed: Bool = false
     @State private var editMode = EditMode.inactive
     //@State private var schedules: [ScheduleInfo] = (0..<5).map { ScheduleInfo(date: "Item #\($0)") }
-    @Binding var schedules: [ScheduleInfo]
+    @Binding var schedules: [String]
     
     var body: some View {
-        List {
-            ForEach(schedules) { schedule in
-                Text(schedule.date)
+        VStack {
+            if schedules.count == 0 {
+                Text(" Please click + button to add your time")
+                    .bold()
+                    .foregroundColor(.gray)
             }
-            .onDelete(perform: onDelete)
-            //.onMove(perform: onMove)
+            List {
+                ForEach(schedules, id: \.self) { schedule in
+                    Text(schedule)
+                }
+                .onDelete(perform: onDelete)
+                //.onMove(perform: onMove)
+            }
+            .navigationBarTitle("Available Times")
+            .navigationBarItems(leading: EditButton().padding(), trailing: addButton)
+            .environment(\.editMode, $editMode)
         }
-        .navigationBarTitle("Available Times")
-        .navigationBarItems(leading: EditButton().padding(), trailing: addButton)
-        .environment(\.editMode, $editMode)
+            
+        NavigationLink(destination: SchedulerPicker(allSchedules: $schedules),isActive: $isAddPressed) { EmptyView() }
+            .frame(width: 0, height: 0)
+            .hidden()
     }
     private var addButton: some View {
-            switch editMode {
-            case .inactive:
-                return AnyView(Button(action: onAdd) { Image(systemName: "plus") })
-            default:
-                return AnyView(EmptyView())
-            }
+        switch editMode {
+        case .inactive:
+            return AnyView(Button(action: onAdd) { Image(systemName: "plus") })
+        default:
+            return AnyView(EmptyView())
         }
+    }
     
     func onAdd() {
-            print ("on Add")
+        print ("on Add")
+        isAddPressed = true
+        
     }
     
     private func onDelete(offsets: IndexSet) {
@@ -43,7 +58,7 @@ struct ScheduleListView: View {
     
     private func onMove(source: IndexSet, destination: Int) {
         print ("on delete")
-        }
+    }
 }
 
 

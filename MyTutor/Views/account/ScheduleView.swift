@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ScheduleView: View {
-    @State var availableSchedules: [ScheduleInfo] = LocalUserManager.shared.currentUser.availableSchedules
+    
+    @Binding var schedules: [String]
     
     var body: some View {
         NavigationLink(destination: {
-                ScheduleListView(schedules: $availableSchedules)
+            ScheduleListView(schedules: $schedules)
             }, label: {
                 HStack {
                     Text("Your available schedules:")
@@ -26,8 +27,8 @@ struct ScheduleView: View {
     }
 }
 
-struct ScheduleView_Previews: PreviewProvider {
-    static var previews: some View {
-        ScheduleView()
-    }
-}
+//struct ScheduleView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ScheduleView()
+//    }
+//}

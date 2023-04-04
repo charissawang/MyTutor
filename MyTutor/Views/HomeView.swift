@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var subjectViewModel = SubjectViewModel()
+    //@ObservedObject var subjectViewModel = SubjectViewModel()
+    @ObservedObject var userViewModel = UserViewModel()
     
-    @State var selectedItems: [String] = LocalUserManager.shared.currentUser.subjects
+    var localUserManager = LocalUserManager.shared
+    
+    //@State var selectedItems: [String] = LocalUserManager.shared.currentUser.subjects
+    @Binding var selectedItems: [String]
+    @Binding var allSubjects: [String]
     
     var body: some View {
         ZStack {
@@ -19,7 +24,7 @@ struct HomeView: View {
                     Form {
                         Section("Choose your tutor subjects:", content: {
                             NavigationLink(destination: {
-                                SubjectSelectPickerView(allItems: subjectViewModel.subjectItems, selectedItems: $selectedItems)
+                                SubjectSelectPickerView(allItems: allSubjects, selectedItems: $selectedItems)
                                     .navigationTitle("Choose Your Subject")
                             }, label: {
                                 HStack {
@@ -43,13 +48,13 @@ struct HomeView: View {
                         })
                         
                         Section("My availables are:", content:{
-                            ScheduleView()
+                            ScheduleView(schedules: $userViewModel.currentUser.availableSchedules)
                         })
                     }
                     .navigationTitle("Dashboard")
                     .onAppear() {
-                        self.subjectViewModel.fetchAllSubjects()
-                        //self.subjectViewModel.fetchUserSubjects(currentUser?.uid ?? "")
+                        //self.subjectViewModel.fetchAllSubjects()
+                        self.userViewModel.loadUserInfo()
                     }
                 }
             }
@@ -57,8 +62,8 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView(selectedItems: [])
+//    }
+//}
