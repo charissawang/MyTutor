@@ -13,6 +13,7 @@
 		9750EE6A29B9094200E40CA9 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750EE6929B9094200E40CA9 /* AccountView.swift */; };
 		9750EE6E29B90CA100E40CA9 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750EE6D29B90CA100E40CA9 /* WelcomeView.swift */; };
 		979943A729D8A66600C8B639 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943A629D8A66600C8B639 /* DateUtils.swift */; };
+		979943AA29E1D38300C8B639 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943A929E1D38300C8B639 /* DashboardView.swift */; };
 		97AC67B529B9067200FC1A85 /* MyTutorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC67B429B9067200FC1A85 /* MyTutorApp.swift */; };
 		97AC67B729B9067200FC1A85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC67B629B9067200FC1A85 /* ContentView.swift */; };
 		97AC67B929B9067200FC1A85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97AC67B829B9067200FC1A85 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		9750EE6929B9094200E40CA9 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		9750EE6D29B90CA100E40CA9 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		979943A629D8A66600C8B639 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		979943A929E1D38300C8B639 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		97AC67B129B9067200FC1A85 /* MyTutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTutor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97AC67B429B9067200FC1A85 /* MyTutorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTutorApp.swift; sourceTree = "<group>"; };
 		97AC67B629B9067200FC1A85 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,12 +108,11 @@
 		9750EE6429B908B900E40CA9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				979943AB29E1D3F500C8B639 /* student */,
+				979943A829E1D35000C8B639 /* tutor */,
 				97B818CB29BE86260095946E /* account */,
 				97B818C129BAF9BA0095946E /* auth */,
 				97B818B629BA500E0095946E /* components */,
-				9750EE6529B908F400E40CA9 /* HomeView.swift */,
-				9750EE6729B9090700E40CA9 /* LessonsView.swift */,
-				9750EE6929B9094200E40CA9 /* AccountView.swift */,
 				9750EE6D29B90CA100E40CA9 /* WelcomeView.swift */,
 			);
 			path = Views;
@@ -123,6 +124,23 @@
 				979943A629D8A66600C8B639 /* DateUtils.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		979943A829E1D35000C8B639 /* tutor */ = {
+			isa = PBXGroup;
+			children = (
+				979943A929E1D38300C8B639 /* DashboardView.swift */,
+			);
+			path = tutor;
+			sourceTree = "<group>";
+		};
+		979943AB29E1D3F500C8B639 /* student */ = {
+			isa = PBXGroup;
+			children = (
+				9750EE6729B9090700E40CA9 /* LessonsView.swift */,
+				9750EE6529B908F400E40CA9 /* HomeView.swift */,
+			);
+			path = student;
 			sourceTree = "<group>";
 		};
 		97AC67A829B9067200FC1A85 = {
@@ -211,6 +229,7 @@
 		97B818CB29BE86260095946E /* account */ = {
 			isa = PBXGroup;
 			children = (
+				9750EE6929B9094200E40CA9 /* AccountView.swift */,
 				97B818CC29BE86600095946E /* SubjectSelectionView.swift */,
 				97B818DE29CE3CCF0095946E /* AboutMeView.swift */,
 				97B818E429D226A60095946E /* SchedulerPicker.swift */,
@@ -406,6 +425,7 @@
 				97B818CD29BE86600095946E /* SubjectSelectionView.swift in Sources */,
 				97B818B829BA50460095946E /* CustomTextfield.swift in Sources */,
 				9750EE6A29B9094200E40CA9 /* AccountView.swift in Sources */,
+				979943AA29E1D38300C8B639 /* DashboardView.swift in Sources */,
 				97B818EB29D399070095946E /* ScheduleInfo.swift in Sources */,
 				97B818B529BA4F150095946E /* CustomTextM.swift in Sources */,
 				97B818BE29BAF0AF0095946E /* ForgotPasswordView.swift in Sources */,

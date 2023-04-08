@@ -47,4 +47,24 @@ class LocalDataManager: NSObject {
     func setBothChoice() {
         setLocalData(AccountContants.USER_CHOICE, AccountContants.STUDENT_AND_TUTOR_TYPE)
     }
+    
+    func isTutor() -> Bool {
+        let userChoice = getLocalData(AccountContants.USER_CHOICE)
+        
+        if let userChoice = userChoice {
+            return userChoice == AccountContants.TUTOR_TYPE || userChoice == AccountContants.STUDENT_AND_TUTOR_TYPE
+        }
+        
+        return false
+    }
+    
+    func isStudent() -> Bool {
+        let userChoice = getLocalData(AccountContants.USER_CHOICE)
+        
+        if let userChoice = userChoice {
+            return userChoice == AccountContants.STUDENT_TYPE || userChoice == AccountContants.STUDENT_AND_TUTOR_TYPE
+        }
+        
+        return false
+    }
 }

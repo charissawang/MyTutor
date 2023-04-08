@@ -23,16 +23,36 @@ struct ContentView: View {
                 LoginView()
             } else {
                 TabView {
-                    HomeView(selectedItems: $userViewModel.currentUser.subjects, allSubjects: $subjectViewModel.subjectItems)
-                        .tabItem(){
-                            Image(systemName: "house.fill")
-                            Text("Home")
-                        }
-                    LessonsView()
-                        .tabItem(){
-                            Image(systemName: "book")
-                            Text("Lessons")
-                        }
+                    if (localDataManager.isTutor()) {
+                        DashboardView(selectedItems: $userViewModel.currentUser.subjects,
+                                 allSubjects: $subjectViewModel.subjectItems,
+                                 schedules: $userViewModel.currentUser.availableSchedules)
+                            .tabItem(){
+                                Image(systemName: "globe")
+                                Text("Dashboard")
+                            }
+                    }
+                    if (localDataManager.isStudent()) {
+                        HomeView(selectedItems: $userViewModel.currentUser.subjects,
+                                 allSubjects: $subjectViewModel.subjectItems,
+                                 schedules: $userViewModel.currentUser.availableSchedules)
+                            .tabItem(){
+                                Image(systemName: "house.fill")
+                                Text("Home")
+                            }
+                        LessonsView()
+                            .tabItem(){
+                                Image(systemName: "book")
+                                Text("Lessons")
+                            }
+                    }
+                    if (localDataManager.isTutor()) {
+                        LessonsView()
+                            .tabItem(){
+                                Image(systemName: "calendar.badge.clock")
+                                Text("Tasks")
+                            }
+                    }
                     AccountView()
                         .tabItem {
                             Image(systemName: "person")
@@ -52,7 +72,6 @@ struct ContentView: View {
     }
     
     func showWelcomeView() -> Bool {
-        // localDataManager.clearUserChoice()
         let userChoice = localDataManager.getLocalData(AccountContants.USER_CHOICE)
         
         if userChoice == nil {

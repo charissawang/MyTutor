@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct DashboardView: View {
     //@ObservedObject var subjectViewModel = SubjectViewModel()
-    @ObservedObject var userViewModel = UserViewModel()
+    // @ObservedObject var userViewModel = UserViewModel()
     
     var localUserManager = LocalUserManager.shared
     
     //@State var selectedItems: [String] = LocalUserManager.shared.currentUser.subjects
     @Binding var selectedItems: [String]
     @Binding var allSubjects: [String]
+    @Binding var schedules: [String]
     
     var body: some View {
         ZStack {
@@ -48,22 +49,16 @@ struct HomeView: View {
                         })
                         
                         Section("My availables are:", content:{
-                            ScheduleView(schedules: $userViewModel.currentUser.availableSchedules)
+                            ScheduleView(schedules: $schedules)
                         })
                     }
                     .navigationTitle("Dashboard")
-                    .onAppear() {
-                        //self.subjectViewModel.fetchAllSubjects()
-                        self.userViewModel.loadUserInfo()
-                    }
+//                    .onAppear() {
+//                        //self.subjectViewModel.fetchAllSubjects()
+//                        self.userViewModel.loadUserInfo()
+//                    }
                 }
             }
         }
     }
 }
-
-//struct HomeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeView(selectedItems: [])
-//    }
-//}

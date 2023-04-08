@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ScheduleListView: View {
-
+    var localUserManager = LocalUserManager.shared
+    
     @State private var isAddPressed: Bool = false
     @State private var editMode = EditMode.inactive
     //@State private var schedules: [ScheduleInfo] = (0..<5).map { ScheduleInfo(date: "Item #\($0)") }
@@ -53,7 +54,11 @@ struct ScheduleListView: View {
     }
     
     private func onDelete(offsets: IndexSet) {
-        print ("on delete")
+        for index in offsets{
+            schedules.remove(at: index)
+        }
+        localUserManager.setAvailableSchedules(schedules)
+        localUserManager.createOrUpdateUser()
     }
     
     private func onMove(source: IndexSet, destination: Int) {
