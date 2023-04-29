@@ -33,9 +33,8 @@ struct ContentView: View {
                             }
                     }
                     if (localDataManager.isStudent()) {
-                        HomeView(selectedItems: $userViewModel.currentUser.subjects,
-                                 allSubjects: $subjectViewModel.subjectItems,
-                                 schedules: $userViewModel.currentUser.availableSchedules)
+                        HomeView(categories: $subjectViewModel.subjectCategories,
+                                 subjectCategoryMap: $subjectViewModel.subjectCategoryMap)
                             .tabItem(){
                                 Image(systemName: "house.fill")
                                 Text("Home")
@@ -47,7 +46,7 @@ struct ContentView: View {
                             }
                     }
                     if (localDataManager.isTutor()) {
-                        LessonsView()
+                        TasksView()
                             .tabItem(){
                                 Image(systemName: "calendar.badge.clock")
                                 Text("Tasks")
@@ -60,15 +59,13 @@ struct ContentView: View {
                         }
                 }
                 .onAppear() {
-                    self.subjectViewModel.fetchAllSubjects()
                     self.userViewModel.loadUserInfo()
+                    self.subjectViewModel.fetchCategoryAndSubjects()
                 }
             }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
-        
-        //SchedulerPicker()
     }
     
     func showWelcomeView() -> Bool {

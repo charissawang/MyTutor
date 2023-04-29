@@ -28,10 +28,10 @@ class LocalUserManager: NSObject {
     }
     
     func createOrUpdateUser() {
-        print("availbeSchedules \(currentUser.availableSchedules)")
         firebaseManager.firestore.collection("users").document(currentUser.uid).setData([
             "uid": currentUser.uid,
             "email": currentUser.email,
+            "phoneNumber": currentUser.phoneNumber,
             "tutorMode": localDataManager.getUserChoice() ?? "",
             "displayName": currentUser.displayName,
             "description": currentUser.description,
@@ -57,6 +57,10 @@ class LocalUserManager: NSObject {
     
     func setDescription(_ desc: String) {
         currentUser.description = desc
+    }
+    
+    func setPhoneNumber(_ phone: String) {
+        currentUser.phoneNumber = phone
     }
     
     func setAvailableSchedules(_ schedules: [String]) {
@@ -91,11 +95,17 @@ class LocalUserManager: NSObject {
                     print("localUserManager about to loop users document: \(querySnapshot!.documents.count)")
                     if querySnapshot!.documents.count != 0 {
                         let data = querySnapshot!.documents[0].data()
-                        print("data: \(data)")
+                        // print("data: \(data)")
                         self.currentUser.subjects = data["subjects"] as? [String] ?? []
                         self.currentUser.displayName = data["displayName"] as? String ?? ""
                         self.currentUser.description = data["description"] as? String ?? ""
-                        self.currentUser.availableSchedules = data["availableSchedules"] as? [String] ?? []
+                        self.currentUser.phoneNumber = data["phoneNumber"] as? String ?? ""
+                        
+                        let availabeSchedules = data["availableSchedules"] as? [String] ?? []
+                        self.currentUser.availableSchedules = availabeSchedules.filter({ schedule in
+                            return !DateUtils.isPastSchedule(schedule)
+                        })
+                        // self.currentUser.availableSchedules = data["availableSchedules"] as? [String] ?? []
                         loadCompletion(.success(true))
                     }
                 }

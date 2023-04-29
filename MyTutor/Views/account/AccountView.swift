@@ -14,6 +14,7 @@ struct AccountView: View {
     @State var isOn: Bool = true
     @State var displayName: String = ""
     @State var description: String = ""
+    @State var phoneNumber: String = ""
     
     var body: some View {
         ZStack {
@@ -94,7 +95,7 @@ struct AccountView: View {
                             Form {
                                 Section("About me", content: {
                                     NavigationLink(destination: {
-                                        AboutMeView(displayName: $displayName, description: $description)
+                                        AboutMeView(displayName: $displayName, description: $description, phoneNumber: $phoneNumber)
                                             .navigationTitle("About me")
                                     }, label: {
                                         HStack {
@@ -117,6 +118,7 @@ struct AccountView: View {
                         let name = localUserManager.currentUser.displayName
                         let email = localUserManager.currentUser.email
                         description = localUserManager.currentUser.description
+                        phoneNumber = localUserManager.currentUser.phoneNumber
                         displayName = name == "" ? email : name
                     }
                 }

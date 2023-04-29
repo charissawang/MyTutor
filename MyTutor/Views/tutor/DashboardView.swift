@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct DashboardView: View {
-    //@ObservedObject var subjectViewModel = SubjectViewModel()
-    // @ObservedObject var userViewModel = UserViewModel()
-    
     var localUserManager = LocalUserManager.shared
     
-    //@State var selectedItems: [String] = LocalUserManager.shared.currentUser.subjects
     @Binding var selectedItems: [String]
     @Binding var allSubjects: [String]
     @Binding var schedules: [String]
@@ -51,12 +47,23 @@ struct DashboardView: View {
                         Section("My availables are:", content:{
                             ScheduleView(schedules: $schedules)
                         })
+                        
+                        Section("Please Confirm Your Tutor Request:", content: {
+                            NavigationLink(destination: {
+                                ConfirmingTasksView()
+                                    .navigationTitle("Confirm Requests")
+                            }, label: {
+                                HStack {
+                                    Text("Confirm Requests:")
+                                        .foregroundColor(Color(red: 0.4192, green: 0.2358, blue: 0.3450))
+                                    Spacer()
+                                }
+                            })
+                        })
+                        
+            
                     }
                     .navigationTitle("Dashboard")
-//                    .onAppear() {
-//                        //self.subjectViewModel.fetchAllSubjects()
-//                        self.userViewModel.loadUserInfo()
-//                    }
                 }
             }
         }

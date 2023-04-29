@@ -14,6 +14,18 @@
 		9750EE6E29B90CA100E40CA9 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750EE6D29B90CA100E40CA9 /* WelcomeView.swift */; };
 		979943A729D8A66600C8B639 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943A629D8A66600C8B639 /* DateUtils.swift */; };
 		979943AA29E1D38300C8B639 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943A929E1D38300C8B639 /* DashboardView.swift */; };
+		979943AD29E73B0500C8B639 /* MultiSelectField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943AC29E73B0500C8B639 /* MultiSelectField.swift */; };
+		979943AF29E8863200C8B639 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943AE29E8863200C8B639 /* TimePickerView.swift */; };
+		979943B129E8AC5B00C8B639 /* StudentHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943B029E8AC5A00C8B639 /* StudentHomeViewModel.swift */; };
+		979943B529F1D30100C8B639 /* LocalTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943B429F1D30100C8B639 /* LocalTaskManager.swift */; };
+		979943B729F1F47500C8B639 /* ConfirmingTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943B629F1F47500C8B639 /* ConfirmingTasksView.swift */; };
+		979943B929F2057E00C8B639 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943B829F2057E00C8B639 /* TaskViewModel.swift */; };
+		979943BB29F205F900C8B639 /* TaskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943BA29F205F900C8B639 /* TaskInfo.swift */; };
+		979943BD29F44C0D00C8B639 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943BC29F44C0D00C8B639 /* TasksView.swift */; };
+		979943BF29F46E1800C8B639 /* PastTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943BE29F46E1800C8B639 /* PastTasksView.swift */; };
+		979943C229F47CAA00C8B639 /* TextMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943C129F47CAA00C8B639 /* TextMessageView.swift */; };
+		979943C429F4896300C8B639 /* MessageComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943C329F4896300C8B639 /* MessageComposeView.swift */; };
+		979943C629F7915100C8B639 /* PastLessonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979943C529F7915100C8B639 /* PastLessonsView.swift */; };
 		97AC67B529B9067200FC1A85 /* MyTutorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC67B429B9067200FC1A85 /* MyTutorApp.swift */; };
 		97AC67B729B9067200FC1A85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC67B629B9067200FC1A85 /* ContentView.swift */; };
 		97AC67B929B9067200FC1A85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97AC67B829B9067200FC1A85 /* Assets.xcassets */; };
@@ -54,6 +66,18 @@
 		9750EE6D29B90CA100E40CA9 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		979943A629D8A66600C8B639 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		979943A929E1D38300C8B639 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		979943AC29E73B0500C8B639 /* MultiSelectField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectField.swift; sourceTree = "<group>"; };
+		979943AE29E8863200C8B639 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		979943B029E8AC5A00C8B639 /* StudentHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentHomeViewModel.swift; sourceTree = "<group>"; };
+		979943B429F1D30100C8B639 /* LocalTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTaskManager.swift; sourceTree = "<group>"; };
+		979943B629F1F47500C8B639 /* ConfirmingTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmingTasksView.swift; sourceTree = "<group>"; };
+		979943B829F2057E00C8B639 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		979943BA29F205F900C8B639 /* TaskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInfo.swift; sourceTree = "<group>"; };
+		979943BC29F44C0D00C8B639 /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
+		979943BE29F46E1800C8B639 /* PastTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastTasksView.swift; sourceTree = "<group>"; };
+		979943C129F47CAA00C8B639 /* TextMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageView.swift; sourceTree = "<group>"; };
+		979943C329F4896300C8B639 /* MessageComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposeView.swift; sourceTree = "<group>"; };
+		979943C529F7915100C8B639 /* PastLessonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastLessonsView.swift; sourceTree = "<group>"; };
 		97AC67B129B9067200FC1A85 /* MyTutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTutor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97AC67B429B9067200FC1A85 /* MyTutorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTutorApp.swift; sourceTree = "<group>"; };
 		97AC67B629B9067200FC1A85 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -130,6 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				979943A929E1D38300C8B639 /* DashboardView.swift */,
+				979943B629F1F47500C8B639 /* ConfirmingTasksView.swift */,
+				979943BC29F44C0D00C8B639 /* TasksView.swift */,
+				979943BE29F46E1800C8B639 /* PastTasksView.swift */,
 			);
 			path = tutor;
 			sourceTree = "<group>";
@@ -139,6 +166,8 @@
 			children = (
 				9750EE6729B9090700E40CA9 /* LessonsView.swift */,
 				9750EE6529B908F400E40CA9 /* HomeView.swift */,
+				979943AE29E8863200C8B639 /* TimePickerView.swift */,
+				979943C529F7915100C8B639 /* PastLessonsView.swift */,
 			);
 			path = student;
 			sourceTree = "<group>";
@@ -204,6 +233,9 @@
 				97B818B929BA50900095946E /* CustomSecureField.swift */,
 				97B818CE29BE87E70095946E /* MultiSelectPickerView.swift */,
 				97B818D629CC03250095946E /* SubjectSelectPickerView.swift */,
+				979943AC29E73B0500C8B639 /* MultiSelectField.swift */,
+				979943C129F47CAA00C8B639 /* TextMessageView.swift */,
+				979943C329F4896300C8B639 /* MessageComposeView.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -245,6 +277,7 @@
 				97B818D429CBAD3A0095946E /* TutorInfo.swift */,
 				97B818E029CF7A830095946E /* UserInfo.swift */,
 				97B818EA29D399070095946E /* ScheduleInfo.swift */,
+				979943BA29F205F900C8B639 /* TaskInfo.swift */,
 			);
 			path = Domains;
 			sourceTree = "<group>";
@@ -254,6 +287,8 @@
 			children = (
 				97B818BF29BAF6340095946E /* UserViewModel.swift */,
 				97B818D029C131BC0095946E /* SubjectViewModel.swift */,
+				979943B029E8AC5A00C8B639 /* StudentHomeViewModel.swift */,
+				979943B829F2057E00C8B639 /* TaskViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -272,6 +307,7 @@
 				97B818D929CCA8350095946E /* FirebaseManager.swift */,
 				97B818AC29B925870095946E /* LocalDataManager.swift */,
 				97B818E229CF9EBB0095946E /* LocalUserManager.swift */,
+				979943B429F1D30100C8B639 /* LocalTaskManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -400,17 +436,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				979943AD29E73B0500C8B639 /* MultiSelectField.swift in Sources */,
+				979943C629F7915100C8B639 /* PastLessonsView.swift in Sources */,
+				979943BD29F44C0D00C8B639 /* TasksView.swift in Sources */,
 				97B818AB29B924110095946E /* AccountConstants.swift in Sources */,
 				97B818CA29BE70690095946E /* CustomError.swift in Sources */,
+				979943B129E8AC5B00C8B639 /* StudentHomeViewModel.swift in Sources */,
 				97AC67B729B9067200FC1A85 /* ContentView.swift in Sources */,
 				9750EE6E29B90CA100E40CA9 /* WelcomeView.swift in Sources */,
 				97B818E129CF7A830095946E /* UserInfo.swift in Sources */,
 				97B818DA29CCA8350095946E /* FirebaseManager.swift in Sources */,
 				97B818CF29BE87E70095946E /* MultiSelectPickerView.swift in Sources */,
 				979943A729D8A66600C8B639 /* DateUtils.swift in Sources */,
+				979943C429F4896300C8B639 /* MessageComposeView.swift in Sources */,
 				97B818D529CBAD3A0095946E /* TutorInfo.swift in Sources */,
+				979943B529F1D30100C8B639 /* LocalTaskManager.swift in Sources */,
 				97B818B129BA44FD0095946E /* LoginView.swift in Sources */,
 				97B818B329BA45130095946E /* SignupView.swift in Sources */,
+				979943BF29F46E1800C8B639 /* PastTasksView.swift in Sources */,
 				97B818DF29CE3CCF0095946E /* AboutMeView.swift in Sources */,
 				97B818E529D226A60095946E /* SchedulerPicker.swift in Sources */,
 				9750EE6629B908F400E40CA9 /* HomeView.swift in Sources */,
@@ -418,6 +461,7 @@
 				9750EE6829B9090700E40CA9 /* LessonsView.swift in Sources */,
 				97B818E729D390710095946E /* ScheduleView.swift in Sources */,
 				97B818BA29BA50900095946E /* CustomSecureField.swift in Sources */,
+				979943B729F1F47500C8B639 /* ConfirmingTasksView.swift in Sources */,
 				97B818D729CC03250095946E /* SubjectSelectPickerView.swift in Sources */,
 				97B818C029BAF6340095946E /* UserViewModel.swift in Sources */,
 				97B818E329CF9EBB0095946E /* LocalUserManager.swift in Sources */,
@@ -425,11 +469,15 @@
 				97B818CD29BE86600095946E /* SubjectSelectionView.swift in Sources */,
 				97B818B829BA50460095946E /* CustomTextfield.swift in Sources */,
 				9750EE6A29B9094200E40CA9 /* AccountView.swift in Sources */,
+				979943C229F47CAA00C8B639 /* TextMessageView.swift in Sources */,
 				979943AA29E1D38300C8B639 /* DashboardView.swift in Sources */,
 				97B818EB29D399070095946E /* ScheduleInfo.swift in Sources */,
 				97B818B529BA4F150095946E /* CustomTextM.swift in Sources */,
+				979943BB29F205F900C8B639 /* TaskInfo.swift in Sources */,
 				97B818BE29BAF0AF0095946E /* ForgotPasswordView.swift in Sources */,
 				97B818AD29B925870095946E /* LocalDataManager.swift in Sources */,
+				979943AF29E8863200C8B639 /* TimePickerView.swift in Sources */,
+				979943B929F2057E00C8B639 /* TaskViewModel.swift in Sources */,
 				97B818D129C131BC0095946E /* SubjectViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

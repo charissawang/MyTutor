@@ -1,13 +1,13 @@
 //
-//  LessonsView.swift
+//  TasksView.swift
 //  MyTutor
 //
-//  Created by Charissa Wang on 3/8/23.
+//  Created by Xiaoru Zhao on 4/22/23.
 //
 
 import SwiftUI
 
-struct LessonsView: View {
+struct TasksView: View {
     let currentUser = LocalUserManager.shared.currentUser
     
     @ObservedObject var taskViewModel = TaskViewModel()
@@ -19,10 +19,10 @@ struct LessonsView: View {
             VStack {
                 NavigationView {
                     Form {
-                        if taskViewModel.upcomingConfirmedLessons.count == 0 {
+                        if taskViewModel.upcomingConfirmedTasks.count == 0 {
                             VStack {
                                 HStack {
-                                    Text("You don't have lessons at the moment")
+                                    Text("You don't have tasks at the moment")
                                         .bold()
                                         .foregroundColor(.gray)
                                         .padding()
@@ -31,14 +31,14 @@ struct LessonsView: View {
                             }
                         } else {
                             List {
-                                ForEach(taskViewModel.upcomingConfirmedLessons, id: \.self) { task in
+                                ForEach(taskViewModel.upcomingConfirmedTasks, id: \.self) { task in
                                     VStack {
                                         HStack {
                                             Text(task.subject)
                                             Spacer()
                                         }
                                         HStack {
-                                            Text("Tutor: \(task.fromDisplayName)").foregroundColor(.gray)
+                                            Text("from \(task.fromDisplayName)").foregroundColor(.gray)
                                             Spacer()
                                         }
                                         Text("")
@@ -51,7 +51,7 @@ struct LessonsView: View {
                                             Button  {
                                                 sendMessage(task)
                                             } label: {
-                                                Text ("Send Message")
+                                                Text ("Send Remind Message")
                                                     .background(Color.white)
                                             }
                                             
@@ -65,13 +65,13 @@ struct LessonsView: View {
                            
                         }
                         
-                        if taskViewModel.pastConfirmedLessons.count > 0 {
+                        if taskViewModel.pastConfirmedTasks.count > 0 {
                             NavigationLink(destination: {
-                                PastTasksView(pastTasks: $taskViewModel.pastConfirmedLessons)
-                                    .navigationTitle("My Past Lessons")
+                                PastTasksView(pastTasks: $taskViewModel.pastConfirmedTasks)
+                                    .navigationTitle("My Past Tasks")
                             }, label: {
                                 HStack {
-                                    Text("My Past Lessons").foregroundColor(.gray)
+                                    Text("My Past Tasks").foregroundColor(.gray)
                                         .bold()
                                         .padding()
                                 }
@@ -80,13 +80,13 @@ struct LessonsView: View {
                         
                        NavigationLink(destination: TextMessageView(),isActive: $showTextView) { EmptyView() }.opacity(0.0)
                     }
-                    .navigationTitle("My Lessions")
+                    .navigationTitle("My Tasks")
                 }
    
             }
         }
         .onAppear() {
-            taskViewModel.loadStudentConfirmedLessons(currentUser.email)
+            taskViewModel.loadTutorConfirmedTask(currentUser.email)
         }
     }
     
@@ -95,8 +95,8 @@ struct LessonsView: View {
     }
 }
 
-struct LessonsView_Previews: PreviewProvider {
+struct TasksView_Previews: PreviewProvider {
     static var previews: some View {
-        LessonsView()
+        TasksView()
     }
 }

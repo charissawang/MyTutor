@@ -13,26 +13,7 @@ class UserViewModel: ObservableObject {
     @Published var subjects: [String] = []
     
     var localUserManager = LocalUserManager.shared
-    
-//    var email: String = ""
-//    var password: String = ""
-//    var confirmPassword: String = ""
-//    var uid: String = ""
-//    var isLoggedIn: Bool = false
-//    
-//    //MARK: user info
-//    mutating func checkUserStatus() {
-//        let currentUser = Auth.auth().currentUser
-//        if currentUser != nil {
-//            self.isLoggedIn = false
-//            self.email = currentUser?.email ?? ""
-//            self.uid = currentUser?.uid ?? ""
-//        } else {
-//            self.isLoggedIn = true
-//            self.email = ""
-//            self.uid = ""
-//        }
-//    }
+    var localDateManager = LocalDataManager.shared
     
     func resetUserPassword(_ email: String, resetCompletion: @escaping (Result<Bool, Error>) -> Void) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in

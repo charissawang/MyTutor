@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct UserInfo {
+struct UserInfo: Hashable {
     var uid: String = ""
     var email: String = ""
+    var phoneNumber: String = ""
     var displayName: String = ""
     var description: String = ""
     var tutorMode: Int = -1

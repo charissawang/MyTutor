@@ -14,6 +14,7 @@ struct AboutMeView: View {
     @State var updated: Bool = false
     @Binding var displayName: String
     @Binding var description: String
+    @Binding var phoneNumber: String
     
     
     var body: some View {
@@ -21,6 +22,10 @@ struct AboutMeView: View {
             Form {
                 Section(header: Text("Display Name")) {
                     TextField("display name", text: $displayName)
+                }
+                
+                Section(header: Text("Phone Number")) {
+                    TextField("Phone Number", text: $phoneNumber)
                 }
                 
                 Section(header: Text("Something you want to know about me")) {
@@ -46,6 +51,7 @@ struct AboutMeView: View {
     func saveUserData() {
         localUserManager.setDisplayName(displayName)
         localUserManager.setDescription(description)
+        localUserManager.setPhoneNumber(phoneNumber)
         
         localUserManager.createOrUpdateUser()
     }

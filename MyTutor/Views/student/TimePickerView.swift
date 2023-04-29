@@ -1,19 +1,20 @@
 //
-//  SchedulerPicker.swift
+//  TimePickerView.swift
 //  MyTutor
 //
-//  Created by Xiaoru Zhao on 3/27/23.
+//  Created by Xiaoru Zhao on 4/13/23.
 //
 
 import SwiftUI
 
-struct SchedulerPicker: View {
-    let localUserManager = LocalUserManager.shared
+struct TimePickerView: View {
+    @Environment(\.presentationMode) var presentationMode
     
-    @Binding var allSchedules: [String]
-    @State private var date = Date.now
-    @State private var startT = Date.now
-    @State private var endT = Date.now
+    @Binding var date: Date
+    @Binding var startT: Date
+    @Binding var endT: Date
+    @Binding var timeSelected: Bool
+    
     @State private var showAlert = false
     @State private var alertMessage = ""
     
@@ -35,9 +36,9 @@ struct SchedulerPicker: View {
     var body: some View {
         VStack {
             VStack {
-                Text("Your available date and time")
+                Text("Select Your Time")
                     .font(.title)
-                DatePicker("Your available date and time",
+                DatePicker("Select Your Time",
                            selection: $date,
                            displayedComponents: [.date])
                     .datePickerStyle(GraphicalDatePickerStyle())
@@ -52,12 +53,6 @@ struct SchedulerPicker: View {
                            selection: $endT,
                            displayedComponents: [.hourAndMinute])
                     .datePickerStyle(GraphicalDatePickerStyle())
-                
-//                Text("Date is \(dateFormatter.string(from: date))")
-//
-//                Text("startT is \(timeFormatter.string(from: startT))")
-//
-//                Text("endT is \(timeFormatter.string(from: endT))")
             }
             Spacer()
             VStack {
@@ -73,6 +68,8 @@ struct SchedulerPicker: View {
             }.padding()
             
             
+            
+            
         }.padding()
         
     }
@@ -80,25 +77,12 @@ struct SchedulerPicker: View {
     func saveSelection() {
         showAlert = false
         if DateUtils.validateDateTimeSelection(date: date, startTime: startT, endTime: endT) == false {
+            showAlert = true
             alertMessage = "Please select valid date and time!"
             return
         }
         
-        let newSchedule = dateFormatter.string(from: date)  + "\t" + timeFormatter.string(from: startT) + " - " + timeFormatter.string(from: endT)
-
-        allSchedules.append(newSchedule)
-        
-        allSchedules = DateUtils.sortDate(allSchedules)
-        localUserManager.setAvailableSchedules(allSchedules)
-        localUserManager.createOrUpdateUser()
-        alertMessage = "Your selection is saved!"
-        
-        showAlert = true
+        timeSelected = true
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
-
-//struct SchedulerPicker_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SchedulerPicker()
-//    }
-//}

@@ -12,21 +12,49 @@ import FirebaseAuth
 class SubjectViewModel: ObservableObject {
     @Published var subjectItems = [String]()
     @Published var userSubjects = [String]()
-    private var db = Firestore.firestore()
+    @Published var subjectCategories = [String]()
+    @Published var subjectCategoryMap = [String: [String]]()
+    
+    //private var db = Firestore.firestore()
+    private var db = FirebaseManager.shared.firestore
     private var currentTutor = TutorInfo()
     
-    func fetchAllSubjects() {
-        db.collection("subjects").addSnapshotListener { (querySnapshot, error) in
+//    func fetchAllSubjects() {
+//        db.collection("subjects").addSnapshotListener { (querySnapshot, error) in
+//            guard let documents = querySnapshot?.documents else {
+//                print("No documents")
+//                return
+//            }
+//
+//            self.subjectItems = documents.map { (queryDocumentSnapshot) -> String in
+//                let data = queryDocumentSnapshot.data()
+//                let name = data["name"] as? String ?? ""
+//                return name
+//            }
+//        }
+//    }
+//
+    func fetchCategoryAndSubjects() {
+        db.collection("subjectcategories").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
                 return
             }
             
-            self.subjectItems = documents.map { (queryDocumentSnapshot) -> String in
+            var allSubjects: [String] = []
+            self.subjectCategories = documents.map { (queryDocumentSnapshot) -> String in
                 let data = queryDocumentSnapshot.data()
-                let name = data["name"] as? String ?? ""
+                let name = data["categoryName"] as? String ?? ""
+                let subjects = data["subjects"] as? [String] ?? []
+                self.subjectCategoryMap[name] = subjects
+                allSubjects.append(contentsOf: subjects)
+                
                 return name
             }
+            
+            self.subjectItems = allSubjects
+//            print("fetchCategoryAndSubjects1... \(self.subjectCategories)");
+//            print("fetchCategoryAndSubjects2... \(self.subjectItems)");
         }
     }
     
@@ -36,20 +64,16 @@ class SubjectViewModel: ObservableObject {
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    print("about to loop subjects document: \(querySnapshot!.documents.count)")
                     if querySnapshot!.documents.count == 0 {
                         self.userSubjects = []
                     } else {
                         let data = querySnapshot!.documents[0].data()
-                        print("data: \(data)")
                         self.userSubjects = data["subjects"] as? [String] ?? []
                         print("userSubjects: \(self.userSubjects)")
                         self.currentTutor.uid = userId
                         self.currentTutor.subjects = self.userSubjects
                     }
-//                    for document in querySnapshot!.documents {
-//                        print("\(document.documentID) => \(document.data())")
-//                    }
+
                 }
         }
     }
